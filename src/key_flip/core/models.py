@@ -11,6 +11,7 @@ class Layout:
     id: LayoutId
     name: str
     language: str
+    script: str
     variant: str | None = None
     char_order: Sequence[Char] | None = None
 
