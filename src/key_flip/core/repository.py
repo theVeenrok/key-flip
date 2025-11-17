@@ -1,5 +1,5 @@
-from typing import Self
 from dataclasses import dataclass
+from typing import Self
 
 from key_flip.core.errors import LayoutNotFoundError, LayoutPairNotFoundError
 from key_flip.core.interfaces import LayoutRepository, LayoutSource
