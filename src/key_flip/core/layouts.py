@@ -45,9 +45,11 @@ class TomlLayoutSource(LayoutSource):
     def _build_layout(raw: dict[str, Any]) -> Layout:
         return Layout(
             id=LayoutId(raw["id"]),
-            name=raw.get("display_name") or raw["id"],
+            name=raw.get("display_name", raw["id"]),
             language=raw["language"],
+            script=raw["script"],
             variant=raw.get("variant"),
+            char_order=raw.get("char_order"),
         )
 
     def _build_pair(self, raw: dict[str, Any]) -> LayoutPair:
