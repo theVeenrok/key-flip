@@ -20,10 +20,10 @@ class DummySource(LayoutSource):
 
 
 def make_layout(layout_id: str, name: str) -> Layout:
-    return Layout(id=LayoutId(layout_id), name=name, language="en", variant="us")
+    return Layout(id=LayoutId(layout_id), name=name, language="en", script="latin", variant="us")
 
 
-def make_pair(pair_id: str, layout_ids: tuple[str, str]) -> LayoutPair:
+def make_pair(pair_id: str, layout_ids: tuple[LayoutId, LayoutId]) -> LayoutPair:
     layout_id_objs = tuple(LayoutId(lid) for lid in layout_ids)
     layer = PairLayerMapping(layer="row1", from_chars="abc", to_chars="def")
     return LayoutPair(
