@@ -1,0 +1,61 @@
+version = 1
+
+[[layouts]]
+id = "en_qwerty"
+language = "en"
+script = "latin"
+variant = "us"
+display_name = "English (US) QWERTY"
+
+[[layouts]]
+id = "ru_qwerty"
+language = "ru"
+script = "cyrillic"
+variant = "ЙЦУКЕН"
+display_name = "Russian (ЙЦУКЕН)"
+
+[[pairs]]
+id = "en-ru-qwerty"
+display_name = "English ↔ Russian (QWERTY)"
+description = "Standard mapping between US English and Russian ЙЦУКЕН layouts."
+layouts = ["en_qwerty", "ru_qwerty"]
+
+[[pairs.mappings]]
+layer = "top"
+from = "`1234567890-="
+to = "ё1234567890-="
+
+[[pairs.mappings]]
+layer = "top-shift"
+from = "~!@#$%^&*()_+"
+to = "Ё!\"№;%:?*()_+"
+
+[[pairs.mappings]]
+layer = "row1"
+from = "qwertyuiop[]\\"
+to = "йцукенгшщзхъ\\"
+
+[[pairs.mappings]]
+layer = "row1-shift"
+from = "QWERTYUIOP{}|"
+to = "ЙЦУКЕНГШЩЗХЪ/"
+
+[[pairs.mappings]]
+layer = "row2"
+from = "asdfghjkl;'"
+to = "фывапролджэ"
+
+[[pairs.mappings]]
+layer = "row2-shift"
+from = "ASDFGHJKL:\""
+to = "ФЫВАПРОЛДЖЭ"
+
+[[pairs.mappings]]
+layer = "row3"
+from = "zxcvbnm,./"
+to = "ячсмитьбю."
+
+[[pairs.mappings]]
+layer = "row3-shift"
+from = "ZXCVBNM<>?"
+to = "ЯЧСМИТЬБЮ,"
