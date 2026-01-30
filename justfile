@@ -44,3 +44,9 @@ fmt:
     @uv run --group="lint" ruff format --preview
 
 check: fmt lint test
+
+build:
+    @uv build
+
+publish: build
+    @uv publish --index="pypi"
