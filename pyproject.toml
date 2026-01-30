@@ -7,7 +7,21 @@ name = "key-flip"
 version = "0.1.0"
 description = "key-flip is a utility that fixes text typed with the wrong keyboard layout."
 readme = "README.md"
+keywords = [
+  "cli",
+  "converter",
+  "flip",
+  "keyboard",
+  "keymap",
+  "layout",
+  "text-input",
+  "typing",
+  "utility",
+]
 license = { file = "LICENSE" }
+maintainers = [
+  { name = "Vlad Korneev", email = "veenrok@veenrok.com" },
+]
 authors = [
   { name = "Vlad Korneev", email = "veenrok@veenrok.com" },
 ]
@@ -17,23 +31,32 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
 ]
-dependencies = []
+dependencies = [  ]
+
+urls.changelog = "https://theveenrok.github.io/key-flip/changelog"
+urls.documentation = "https://theveenrok.github.io/key-flip/"
+urls.funding = "https://theveenrok.github.io/key-flip/funding"
+urls.homepage = "https://github.com/theveenrok/key-flip"
+urls.issues = "https://github.com/theveenrok/key-flip/issues"
+urls.releasenotes = "https://github.com/theveenrok/key-flip/releases"
+urls.source = "https://github.com/theveenrok/key-flip"
+
 scripts.key-flip = "key_flip.cli.__main__:main"
 
 [dependency-groups]
 dev = [
+  { include-group = "git-hooks" },
   { include-group = "lint" },
   { include-group = "test" },
-  { include-group = "git-hooks" },
+]
+test = [
+  "pytest>=9.0.1",
 ]
 lint = [
   "ruff>=0.14.5",
   "ty>=0.0.1a26",
   { include-group = "test" },
 ]
-test = [
-  "pytest>=9.0.1",
-]
 git-hooks = [
-    "prek>=0.3.0",
+  "prek>=0.3",
 ]
