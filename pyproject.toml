@@ -20,15 +20,6 @@ classifiers = [
 dependencies = [
   "typer>=0.20",
 ]
-optional-dependencies.fmt = [
-  "ruff>=0.14.5",
-]
-optional-dependencies.lint = [
-  "ty>=0.0.1a26",
-]
-optional-dependencies.test = [
-  "pytest>=9.0.1",
-]
 scripts.key-flip = "key_flip.cli.__main__:main"
 
 [tool.ruff]
@@ -63,6 +54,19 @@ root = [ "src", "tests" ]
 python-version = "3.13"
 
 [dependency-groups]
+dev = [
+  { include-group = "lint" },
+  { include-group = "test" },
+  { include-group = "git-hooks" },
+]
+lint = [
+  "ruff>=0.14.5",
+  "ty>=0.0.1a26",
+  { include-group = "test" },
+]
+test = [
+  "pytest>=9.0.1",
+]
 git-hooks = [
     "prek>=0.3.0",
 ]
