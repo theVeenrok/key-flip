@@ -1,3 +1,7 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [ "hatchling>=1.25" ]
+
 [project]
 name = "key-flip"
 version = "0.1.0"
@@ -5,68 +9,55 @@ description = "key-flip is a utility that fixes text typed with the wrong keyboa
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [
-    { name = "Vlad Korneev", email = "veenrok@veenrok.com" }
+  { name = "Vlad Korneev", email = "veenrok@veenrok.com" },
 ]
 requires-python = ">=3.13"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
 dependencies = [
-    "typer>=0.20.0",
+  "typer>=0.20",
 ]
-[build-system]
-requires = ["hatchling>=1.25"]
-build-backend = "hatchling.build"
-
-[project.scripts]
-key-flip = "key_flip.cli.__main__:main"
-
-[project.optional-dependencies]
-lint = [
-    "ty>=0.0.1a26",
+optional-dependencies.fmt = [
+  "ruff>=0.14.5",
 ]
-fmt = [
-    "ruff>=0.14.5",
+optional-dependencies.lint = [
+  "ty>=0.0.1a26",
 ]
-test = [
-    "pytest>=9.0.1",
+optional-dependencies.test = [
+  "pytest>=9.0.1",
 ]
-
-[tool.ty.environment]
-root = ["src", "tests"]
-python-version = "3.13"
+scripts.key-flip = "key_flip.cli.__main__:main"
 
 [tool.ruff]
-target-version = "py313"
 required-version = ">=0.11.12"
-src = ["src", "tests"]
+target-version = "py313"
 line-length = 120
 indent-width = 4
 
-[tool.ruff.format]
-docstring-code-format = true
-docstring-code-line-length = 80
-quote-style = "double"
-indent-style = "space"
-line-ending = "lf"
-skip-magic-trailing-comma = false
-
-[tool.ruff.lint]
-select = [
-    "E",
-    "I",
-    "F",
-    "W",
-    "C90",
+src = [ "src", "tests" ]
+format.indent-style = "space"
+format.quote-style = "double"
+format.line-ending = "lf"
+format.skip-magic-trailing-comma = false
+format.docstring-code-line-length = 80
+format.docstring-code-format = true
+lint.select = [
+  "C90",
+  "E",
+  "F",
+  "I",
+  "W",
 ]
-ignore = []
+lint.ignore = [  ]
+lint.flake8-annotations.mypy-init-return = true
+lint.flake8-annotations.suppress-none-returning = true
+lint.flake8-bandit.check-typed-exception = true
+lint.isort.section-order = [ "future", "standard-library", "third-party", "first-party", "local-folder" ]
+lint.pydocstyle.convention = "pep257"
 
-[tool.ruff.lint.flake8-annotations]
-mypy-init-return = true
-suppress-none-returning = true
-
-[tool.ruff.lint.flake8-bandit]
-check-typed-exception = true
-
-[tool.ruff.lint.isort]
-section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
-
-[tool.ruff.lint.pydocstyle]
-convention = "pep257"
+[tool.ty.environment]
+root = [ "src", "tests" ]
+python-version = "3.13"
