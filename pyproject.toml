@@ -49,10 +49,6 @@ lint.flake8-bandit.check-typed-exception = true
 lint.isort.section-order = [ "future", "standard-library", "third-party", "first-party", "local-folder" ]
 lint.pydocstyle.convention = "pep257"
 
-[tool.ty.environment]
-root = [ "src", "tests" ]
-python-version = "3.13"
-
 [dependency-groups]
 dev = [
   { include-group = "lint" },
