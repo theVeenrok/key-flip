@@ -18,7 +18,7 @@ class ConverterSimple(Converter):
         converted_text = "".join(mapping.get(char, char) for char in text)
         detection_layout = pair.layout_ids[0 if options.direction == Direction.FORWARD else 1]
         detection = DetectionResult(layout_id=detection_layout)
-        
+
         result = ConvertResult(
             source_text=text,
             converted_text=converted_text,
