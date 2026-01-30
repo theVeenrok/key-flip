@@ -61,3 +61,8 @@ lint.pydocstyle.convention = "pep257"
 [tool.ty.environment]
 root = [ "src", "tests" ]
 python-version = "3.13"
+
+[dependency-groups]
+git-hooks = [
+    "prek>=0.3.0",
+]
