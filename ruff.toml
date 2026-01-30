@@ -1,0 +1,29 @@
+required-version = ">=0.11.12"
+target-version = "py313"
+line-length = 120
+indent-width = 4
+src = [ "src", "tests" ]
+
+
+[format]
+indent-style = "space"
+quote-style = "double"
+line-ending = "lf"
+skip-magic-trailing-comma = false
+docstring-code-line-length = 80
+docstring-code-format = true
+
+[lint]
+select = [
+  "C90",
+  "E",
+  "F",
+  "I",
+  "W",
+]
+ignore = [  ]
+flake8-annotations.mypy-init-return = true
+flake8-annotations.suppress-none-returning = true
+flake8-bandit.check-typed-exception = true
+isort.section-order = [ "future", "standard-library", "third-party", "first-party", "local-folder" ]
+pydocstyle.convention = "pep257"
